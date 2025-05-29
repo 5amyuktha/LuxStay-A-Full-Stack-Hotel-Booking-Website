@@ -1,0 +1,50 @@
+/* Animation for the hero heading */
+
+/* Paragraph styling and animation below the hero heading */
+.hero-heading-animation + p { /* Selects the paragraph immediately following the h1 */
+    color: black; /* Explicitly set paragraph color to black */
+    font-weight: bold; /* Make the paragraph text bold */
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5); /* Slightly stronger shadow for black text */
+    animation: fadeIn 1.8s ease-out forwards; /* Smoother fade-in */
+    animation-delay: 0.8s; /* Delay fade-in slightly after heading starts */
+    opacity: 0; /* Start hidden */
+    font-size: 1.4rem; /* Maintain original size */
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Keyframes for the continuous sliding effect (Right to Left) */
+@keyframes continuousSlideRightToLeft {
+    0% {
+        transform: translateX(-100%); /* Start completely off-screen to the left */
+        opacity: 0; /* Fade in as it enters */
+    }
+    10% {
+        opacity: 1; /* Fully visible once it starts entering */
+    }
+    90% {
+        opacity: 1; /* Fully visible until it starts exiting */
+    }
+    100% {
+        transform: translateX(100%); /* End completely off-screen to the right */
+        opacity: 0; /* Fade out as it exits */
+    }
+}
+
+/* Keyframes for a simple fade-in effect */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* You might need to define --theme-primary-color if not already in your themeContext
+   or directly use theme.primary in inline style for the h1 as before.
+   If you want to use CSS variables, your ThemeContext would need to expose them like this:
+   :root {
+       --theme-primary-color: #YOUR_PRIMARY_COLOR;
+   }
+*/
